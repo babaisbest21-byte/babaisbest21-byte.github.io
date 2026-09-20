@@ -12,6 +12,11 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
+        /* Smooth scroll effect when clicking navigation items */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #060608;
             color: #ffffff;
@@ -86,7 +91,7 @@
         /* --- HERO HEADER --- */
         header {
             text-align: center;
-            padding: 60px 20px 30px 20px;
+            padding: 80px 20px 30px 20px;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -230,15 +235,16 @@
         .slider-btn.prev { left: 40px; }
         .slider-btn.next { right: 40px; }
 
-        /* --- SECTION HEADING --- */
+        /* --- SECTION STRUCTURES --- */
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ffffff;
-            margin: 40px auto 20px auto;
+            margin: 80px auto 30px auto;
+            padding-top: 40px; /* Offset spacing for navigation lock */
         }
         /* --- WEAPON SHOWCASE GRID CONTAINER --- */
         .weapon-grid {
@@ -246,7 +252,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1000px;
-            margin: 0 auto 80px auto;
+            margin: 0 auto 40px auto;
             padding: 0 20px;
         }
 
@@ -334,19 +340,98 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
+
+        /* --- STAFF GRID STYLING --- */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .staff-card {
+            background: rgba(13, 13, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .staff-card.owner { border-color: rgba(255, 51, 51, 0.2); }
+        .staff-card.dev { border-color: rgba(88, 101, 242, 0.2); }
+        
+        .role-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .owner .role-tag {
+            background: rgba(255, 51, 51, 0.1);
+            color: #ff3333;
+            border: 1px solid rgba(255, 51, 51, 0.2);
+        }
+        .dev .role-tag {
+            background: rgba(88, 101, 242, 0.1);
+            color: #5865F2;
+            border: 1px solid rgba(88, 101, 242, 0.2);
+        }
+        .staff-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .username {
+            color: #8e8e9c;
+            font-size: 0.95rem;
+        }
+
+        /* --- UPDATES PAGE HOLDER --- */
+        .coming-soon-box {
+            max-width: 600px;
+            margin: 0 auto 100px auto;
+            background: rgba(13, 13, 18, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        .coming-soon-box h3 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ff3333;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .coming-soon-box p {
+            color: #7c7c8a;
+            font-size: 1.05rem;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Main Navigation Bar -->
-    <nav>
-        <a href="#" class="nav-logo">MurderV</a>
+    <!-- Main Navigation Bar (With single page hashes) -->
+    <nav id="home">
+        <a href="#home" class="nav-logo">MurderV</a>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Weapons</a></li>
-            <li><a href="#">Updates</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#staff">Staff</a></li>
+            <li><a href="#updates">Updates</a></li>
         </ul>
-        <a href="https://discord.gg/gcmJJfHsre" target="_blank" class="nav-btn">Join Discord</a>
+        <a href="https://discord.gg" target="_blank" class="nav-btn">Join Discord</a>
     </nav>
 
     <!-- Header Section -->
@@ -358,13 +443,13 @@
             <a href="https://roblox.com" target="_blank" class="btn-main btn-roblox">
                 <span>🎮</span> Play Scope Simulator on Roblox
             </a>
-            <a href="https://discord.gg/gcmJJfHsre" target="_blank" class="btn-main btn-discord">
+            <a href="https://discord.gg" target="_blank" class="btn-main btn-discord">
                 <span>💬</span> Community Discord
             </a>
         </div>
     </header>
 
-    <!-- Slider Section -->
+    <!-- Image Slider Section -->
     <div class="banner-container">
         <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
         <div class="banner-frame">
@@ -381,9 +466,8 @@
         <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
     </div>
 
+    <!-- Section 1: Weapons Showcase -->
     <h2 class="section-title">Featured Weapons Showcase</h2>
-
-    <!-- Grid Layout Containing Weapon Items -->
     <div class="weapon-grid">
         <div class="weapon-card void">
             <div class="image-container">
@@ -404,7 +488,29 @@
         </div>
     </div>
 
-    <!-- Toggling Script -->
+    <!-- Section 2: Staff Profiles -->
+    <h2 class="section-title" id="staff">Development Staff</h2>
+    <div class="staff-grid">
+        <div class="staff-card owner">
+            <div class="role-tag">Studio Owner</div>
+            <h3>ritis</h3>
+            <div class="username">@korio113</div>
+        </div>
+        <div class="staff-card dev">
+            <div class="role-tag">Developer</div>
+            <h3>FearKross</h3>
+            <div class="username">@KrossDevv</div>
+        </div>
+    </div>
+
+    <!-- Section 3: Game Updates Logs -->
+    <h2 class="section-title" id="updates">Latest Updates</h2>
+    <div class="coming-soon-box">
+        <h3>COMING SOON!</h3>
+        <p>Our project patch notes logs and database archives are currently compiling. Stay tuned.</p>
+    </div>
+
+    <!-- Interactive Toggling Script -->
     <script>
         let currentSlideIdx = 0;
         const slides = document.querySelectorAll('.slide');
