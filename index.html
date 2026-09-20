@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MurderV | Community Hub</title>
+    <title>MurderV | Official Studio</title>
     <style>
         * {
             margin: 0;
@@ -13,153 +13,330 @@
         }
 
         body {
-            background-color: #050505;
-            /* Cool gaming cyber-grid background effect */
-            background-image: 
-                linear-gradient(rgba(255, 51, 51, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 51, 51, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-color: #060608;
             color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 40px 20px;
             overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(255, 51, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 51, 51, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 440px;
+        /* --- NAVBAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(6, 6, 8, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: #ff3333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #888899;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-btn {
+            background: rgba(88, 101, 242, 0.1);
+            border: 1px solid rgba(88, 101, 242, 0.4);
+            color: #5865F2;
+            padding: 8px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #5865F2;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+        }
+
+        /* --- HERO HEADER --- */
+        header {
             text-align: center;
-            background: rgba(15, 15, 15, 0.75);
-            padding: 40px 30px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 51, 51, 0.15);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            padding: 60px 20px 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .logo-area {
+        header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: #8e8e9c;
+            font-size: 1.2rem;
+            line-height: 1.6;
             margin-bottom: 35px;
         }
 
-        .profile-title {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #ff3333;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            /* Aggressive neon glow effect */
-            text-shadow: 0 0 15px rgba(255, 51, 51, 0.6), 0 0 30px rgba(255, 51, 51, 0.2);
-            animation: pulse Glow 3s infinite alternate;
+        /* --- PLAY / COMMUNITY CTAs --- */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
-        .profile-subtitle {
-            font-size: 0.95rem;
-            color: #aaaaaa;
-            font-weight: 500;
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .btn-roblox {
+            background: linear-gradient(135deg, #ff3333 0%, #b30000 100%);
+            box-shadow: 0 4px 25px rgba(255, 51, 51, 0.3);
+        }
+
+        .btn-roblox:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(255, 51, 51, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-discord {
+            background: #111115;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-discord:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-main span {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* --- SHOWCASE BANNER --- */
+        .banner-container {
+            max-width: 1000px;
+            margin: 20px auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .banner-frame {
+            width: 100%;
+            background: rgba(13, 13, 18, 0.6);
+            border: 1px solid rgba(255, 51, 51, 0.15);
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .banner-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .banner-placeholder {
+            padding: 60px 20px;
+            text-align: center;
+            color: #444455;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- SECTION HEADING --- */
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: #ffffff;
+            margin: 40px auto 20px auto;
         }
 
-        .links-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+        /* --- WEAPON SHOWCASE GRID --- */
+        .weapon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
         }
 
-        .link-card {
+        .weapon-card {
+            background: rgba(13, 13, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+        }
+
+        .weapon-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .weapon-card.void { border-color: rgba(150, 150, 150, 0.2); }
+        .weapon-card.void:hover {
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .weapon-card.matrix { border-color: rgba(68, 255, 68, 0.15); }
+        .weapon-card.matrix:hover {
+            box-shadow: 0 10px 30px rgba(68, 255, 68, 0.1);
+            border-color: rgba(68, 255, 68, 0.5);
+        }
+
+        .image-container {
+            background: #0d0d12;
+            border-radius: 12px;
+            width: 100%;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 24px;
-            border-radius: 14px;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            overflow: hidden;
+        }
+
+        .image-container img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .image-placeholder {
+            color: #444455;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .weapon-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid transparent;
         }
 
-        /* Roblox Premium Gradient styling */
-        .link-card.roblox {
-            background: linear-gradient(135deg, #e60000 0%, #990000 100%);
-            box-shadow: 0 4px 15px rgba(230, 0, 0, 0.3);
+        .rarity-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
 
-        .link-card.roblox:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(230, 0, 0, 0.5);
-            background: linear-gradient(135deg, #ff1a1a 0%, #b30000 100%);
+        .void .rarity-tag {
+            background: rgba(255, 255, 255, 0.06);
+            color: #cccccc;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Discord Premium Blur styling */
-        .link-card.discord {
-            background: linear-gradient(135deg, #5865F2 0%, #404eed 100%);
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        .matrix .rarity-tag {
+            background: rgba(68, 255, 68, 0.06);
+            color: #44ff44;
+            border: 1px solid rgba(68, 255, 68, 0.2);
+            text-shadow: 0 0 10px rgba(68, 255, 68, 0.3);
         }
 
-        .link-card.discord:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5);
-            background: linear-gradient(135deg, #6b77f5 0%, #525fed 100%);
-        }
-
-        /* Coming Soon Clean Sleek border style */
-        .link-card.standard {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            color: #666666;
-            cursor: not-allowed;
-        }
-
-        .link-card.standard:hover {
-            border-color: rgba(255, 51, 51, 0.3);
-            color: #888888;
-        }
-
-        /* Visual icons adjustment */
-        .icon {
-            margin-right: 10px;
-            font-size: 1.25rem;
+        .weapon-desc {
+            color: #7c7c8a;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Upgraded Header -->
-        <div class="logo-area">
-            <h1 class="profile-title">MurderV</h1>
-            <p class="profile-subtitle">Official Community Hub</p>
+    <!-- Main Navigation Bar -->
+    <nav>
+        <a href="#" class="nav-logo">MurderV</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Weapons</a></li>
+            <li><a href="#">Updates</a></li>
+        </ul>
+        <a href="https://discord.gg" target="_blank" class="nav-btn">Join Discord</a>
+    </nav>
+
+    <!-- Main Central Title and Quick Launch Buttons -->
+    <header>
+        <h1>MurderV</h1>
+        <p>Welcome to the official hub of MurderV. Dive into custom game environments, discover high-tier seasonal weapon metrics, and join our active community hub.</p>
+        
+        <div class="hero-buttons">
+            <a href="https://roblox.com" target="_blank" class="btn-main btn-roblox">
+                <span>🎮</span> Play Scope Simulator on Roblox
+            </a>
+            <a href="https://discord.gg" target="_blank" class="btn-main btn-discord">
+                <span>💬</span> Community Discord
+            </a>
         </div>
+    </header>
 
-        <!-- Links List -->
-        <div class="links-wrapper">
-            <!-- ROBLOX LINK -->
-            <a href="https://roblox.com" 
-               target="_blank" 
-               class="link-card roblox">
-               <span class="icon">🎮</span> Play Scope Simulator on Roblox
-            </a>
-
-            <!-- DISCORD LINK -->
-            <a href="https://discord.gg/gcmJJfHsre" 
-               target="_blank" 
-               class="link-card discord">
-               <span class="icon">💬</span> Join Our Discord Server
-            </a>
-
-            <!-- FUTURE YOUTUBE LINK -->
-            <a href="#" class="link-card standard">
-               <span class="icon">🎬</span> YouTube Channel (Coming Soon)
-            </a>
+    <!-- MAIN ARTWORK BANNER SECTION -->
+    <div class="banner-container">
+        <div class="banner-frame">
+            <img src="showcase.webp" alt="MurderV Game Environment Showcase" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="banner-placeholder" style="display:none;">[ Showcase Artwork Image ]</div>
         </div>
     </div>
 
-</body>
-</html>
