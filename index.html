@@ -85,6 +85,7 @@
             color: #ffffff;
             text-transform: uppercase;
         }
+
         /* --- CTAs --- */
         .hero-buttons {
             display: flex;
@@ -121,7 +122,6 @@
             margin-right: 10px;
             font-size: 1.3rem;
         }
-
         /* --- SLIDER BANNER WITH ARROWS --- */
         .banner-container {
             max-width: 1000px;
@@ -296,7 +296,6 @@
             border: 1px solid rgba(68, 255, 68, 0.2);
             text-shadow: 0 0 10px rgba(68, 255, 68, 0.3);
         }
-
         /* --- STAFF GRID STYLING --- */
         .staff-grid {
             display: grid;
@@ -334,21 +333,25 @@
             letter-spacing: 1px;
             margin-bottom: 15px;
         }
+
         .owner .role-tag {
             background: rgba(255, 51, 51, 0.1);
             color: #ff3333;
             border: 1px solid rgba(255, 51, 51, 0.2);
         }
+
         .dev .role-tag {
             background: rgba(88, 101, 242, 0.1);
             color: #5865F2;
             border: 1px solid rgba(88, 101, 242, 0.2);
         }
+
         .staff-card h3 {
             font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 6px;
         }
+
         .username {
             color: #8e8e9c;
             font-size: 0.95rem;
@@ -364,6 +367,7 @@
             padding: 40px;
             text-align: center;
         }
+
         .coming-soon-box h3 {
             font-size: 2.2rem;
             font-weight: 900;
@@ -371,6 +375,7 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
         }
+
         .coming-soon-box p {
             color: #7c7c8a;
             font-size: 1.05rem;
@@ -384,7 +389,7 @@
             .slider-btn { width: 35px; height: 35px; font-size: 1rem; }
             .slider-btn.prev { left: 25px; }
             .slider-btn.next { right: 25px; }
-            .weapon-grid, .staff-grid { gap: 15px; padding: 0 10px; }
+            .weapon-grid, .staff-grid { grid-template-columns: 1fr; gap: 15px; padding: 0 10px; }
             .weapon-card, .staff-card { padding: 15px 10px; border-radius: 14px; }
             .image-container { height: 110px; margin-bottom: 10px; }
             .weapon-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
@@ -423,7 +428,7 @@
 
     <!-- Image Slider Section -->
     <div class="banner-container">
-        <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
         <div class="banner-frame">
             <div class="slide active">
                 <img src="showcase.webp" alt="MurderV Game Environment Showcase">
@@ -435,7 +440,7 @@
                 <img src="matrixscope.webp" alt="Matrixscope Sniper Showcase">
             </div>
         </div>
-        <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+        <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
     </div>
 
     <!-- Section 1: Weapons Showcase -->
